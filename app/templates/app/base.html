@@ -1,0 +1,492 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}J.K Resort | Rongo{% endblock %}</title>
+
+    <meta name="description"
+        content="{% block meta_description %}Welcome to J.K Resort. Enjoy accommodation, food and drinks in a welcoming environment.{% endblock %}">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        resort: {
+                            red: '#E71916',
+                            yellow: '#FFD900',
+                            dark: '#171717',
+                            cream: '#faf8f5'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            color: #222;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        a,
+        button,
+        input,
+        textarea {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .top-link:hover {
+            color: #FFD900;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: .3s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            height: 2px;
+            width: 0;
+            background: #E71916;
+            transition: .3s;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.2s ease, visibility 1.2s ease;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.04);
+            transition: transform 7s ease;
+        }
+
+        .hero-slide.active img {
+            transform: scale(1);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(90deg,
+                    rgba(0, 0, 0, .72),
+                    rgba(0, 0, 0, .35),
+                    rgba(0, 0, 0, .08));
+        }
+
+        .section-heading {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+        }
+
+        .gold-line {
+            width: 65px;
+            height: 3px;
+            background: #FFD900;
+        }
+
+        .red-button {
+            background: #E71916;
+            color: white;
+            transition: .3s;
+        }
+
+        .red-button:hover {
+            background: #b91210;
+        }
+
+        .gold-button {
+            background: #FFD900;
+            color: #171717;
+            transition: .3s;
+        }
+
+        .gold-button:hover {
+            background: white;
+        }
+
+        .service-card img {
+            transition: transform .6s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.07);
+        }
+
+        .gallery-image {
+            overflow: hidden;
+        }
+
+        .gallery-image img {
+            transition: transform .5s ease;
+        }
+
+        .gallery-image:hover img {
+            transform: scale(1.08);
+        }
+
+        .mobile-menu {
+            transition: all .3s ease;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        @media(max-width: 1023px) {
+            .desktop-nav {
+                display: none;
+            }
+        }
+    </style>
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body class="bg-white">
+
+    <!-- TOP CONTACT BAR -->
+    <div class="bg-resort-dark text-white">
+        <div class="max-w-7xl mx-auto px-5 py-2.5 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm">
+
+            <div class="flex flex-wrap justify-center items-center gap-5">
+
+                <span>
+                    <i class="fa-solid fa-location-dot text-resort-yellow mr-2"></i>
+                    J.K Resort
+                </span>
+
+                <a href="tel:+254700000000" class="top-link">
+                    <i class="fa-solid fa-phone text-resort-yellow mr-2"></i>
+                    Call Us
+                </a>
+
+            </div>
+
+            <div class="flex items-center gap-4">
+
+                <span>Follow us:</span>
+
+                <a href="#" class="top-link" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#" class="top-link" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#" class="top-link" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="h-[88px] flex items-center justify-between">
+
+                <!-- BRAND -->
+                <a href="{% url 'home' %}" class="flex items-center gap-3">
+
+                    <div class="w-14 h-14 bg-resort-red flex items-center justify-center border-2 border-resort-yellow">
+                        <span class="text-resort-yellow font-bold text-2xl">J.K</span>
+                    </div>
+
+                    <div>
+                        <h1 class="text-3xl font-bold leading-none">
+                            J.K <span class="text-resort-red">RESORT</span>
+                        </h1>
+
+                        <p class="text-xs tracking-[3px] text-gray-500 mt-1">
+                            FOOD · ACCOMMODATION
+                        </p>
+                    </div>
+
+                </a>
+
+
+                <!-- DESKTOP NAV -->
+                <nav class="desktop-nav hidden lg:flex items-center gap-7 text-[17px] font-semibold">
+
+                    <a href="{% url 'home' %}" class="nav-link active">Home</a>
+
+                    <a href="#accommodation" class="nav-link">Accommodation</a>
+
+                    <a href="#events" class="nav-link">Meetings & Events</a>
+
+                    <a href="#gallery" class="nav-link">Media</a>
+
+                    <a href="#contact" class="nav-link">Contact</a>
+
+                </nav>
+
+
+                <!-- BOOK NOW -->
+                <div class="hidden lg:block">
+                    <a href="#contact"
+                        class="red-button px-7 py-3.5 text-base font-bold inline-flex items-center gap-3">
+                        Book Now
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+
+                <!-- MOBILE TOGGLE -->
+                <button id="menuToggle" class="lg:hidden text-2xl text-resort-dark p-2" aria-label="Toggle navigation"
+                    aria-expanded="false">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- MOBILE NAVIGATION -->
+            <div id="mobileMenu" class="mobile-menu hidden lg:hidden border-t py-5">
+
+                <nav class="flex flex-col gap-5 text-lg font-semibold">
+
+                    <a href="{% url 'home' %}">Home</a>
+
+                    <a href="#accommodation">Accommodation</a>
+
+                    <a href="#events">Meetings & Events</a>
+
+                    <a href="#gallery">Media</a>
+
+                    <a href="#contact">Contact</a>
+
+                    <a href="#contact" class="red-button text-center py-3">
+                        Book Now
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- PAGE CONTENT -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-[#171717] text-white" id="contact">
+
+        <div class="max-w-7xl mx-auto px-5 py-16">
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- ABOUT -->
+                <div>
+
+                    <h2 class="text-3xl font-bold">
+                        J.K <span class="text-resort-yellow">RESORT</span>
+                    </h2>
+
+                    <div class="gold-line my-5"></div>
+
+                    <p class="text-gray-400 text-base leading-7">
+
+                        Welcome to J.K Resort. Experience comfortable
+                        accommodation, delicious food and refreshing
+                        drinks in a welcoming environment.
+
+                    </p>
+
+                    <div class="flex gap-5 mt-6 text-xl">
+
+                        <a href="#" class="hover:text-resort-yellow">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+
+                        <a href="#" class="hover:text-resort-yellow">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#" class="hover:text-resort-yellow">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK LINKS -->
+                <div>
+
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+
+                    <ul class="space-y-4 text-gray-400">
+
+                        <li><a href="{% url 'home' %}" class="hover:text-resort-yellow">Home</a></li>
+
+                        <li><a href="#accommodation" class="hover:text-resort-yellow">Accommodation</a></li>
+
+                        <li><a href="#events" class="hover:text-resort-yellow">Meetings & Events</a></li>
+
+                        <li><a href="#gallery" class="hover:text-resort-yellow">Gallery</a></li>
+
+                        <li><a href="#contact" class="hover:text-resort-yellow">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- SERVICES -->
+                <div>
+
+                    <h3 class="text-xl font-bold mb-6">Our Services</h3>
+
+                    <ul class="space-y-4 text-gray-400">
+
+                        <li>Accommodation</li>
+                        <li>Food & Dining</li>
+                        <li>Drinks & Refreshments</li>
+                        <li>Meetings & Events</li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- CONTACT -->
+                <div>
+
+                    <h3 class="text-xl font-bold mb-6">Contact Us</h3>
+
+                    <ul class="space-y-5 text-gray-400">
+
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-location-dot text-resort-yellow mt-1"></i>
+                            <span>J.K Resort, location to be confirmed</span>
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-phone text-resort-yellow mt-1"></i>
+                            <a href="tel:+254700000000">Phone number to be added</a>
+                        </li>
+
+                        <li class="flex gap-3">
+                            <i class="fa-solid fa-envelope text-resort-yellow mt-1"></i>
+                            <span>Email to be added</span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="border-t border-white/10 mt-14 pt-7 flex flex-col md:flex-row justify-between gap-4 text-sm text-gray-500">
+
+                <p>
+                    © {% now "Y" %} J.K Resort. All Rights Reserved.
+                </p>
+
+                <p>
+                    Accommodation · Drinks · Food
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- MOBILE MENU JAVASCRIPT -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', () => {
+
+            mobileMenu.classList.toggle('hidden');
+
+            const open = !mobileMenu.classList.contains('hidden');
+
+            menuToggle.setAttribute('aria-expanded', open);
+
+            menuToggle.innerHTML = open
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
+
+        });
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                mobileMenu.classList.add('hidden');
+
+                menuToggle.setAttribute('aria-expanded', 'false');
+
+                menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+            });
+
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+
+</body>
+
+</html>

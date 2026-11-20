@@ -1,3 +1,721 @@
-{%load static%}
+{% extends 'app/base.html' %}
+{% load static %}
 
-<h1>Hello! welcome to jk-resort</h1>
+{% block title %}J.K Resort | Comfort, Hospitality & Relaxation{% endblock %}
+
+{% block content %}
+
+<!-- =====================================================
+     HERO SECTION
+====================================================== -->
+
+<section class="relative h-[580px] md:h-[680px] lg:h-[740px] overflow-hidden bg-black">
+
+    <!-- SLIDE 1 -->
+    <div class="jk-slide absolute inset-0 opacity-100 transition-opacity duration-[1500ms]">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2200&q=90"
+            alt="Beautiful resort" class="w-full h-full object-cover">
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="jk-slide absolute inset-0 opacity-0 transition-opacity duration-[1500ms]">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2200&q=90"
+            alt="Resort swimming pool" class="w-full h-full object-cover">
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="jk-slide absolute inset-0 opacity-0 transition-opacity duration-[1500ms]">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2200&q=90"
+            alt="Resort exterior" class="w-full h-full object-cover">
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="jk-slide absolute inset-0 opacity-0 transition-opacity duration-[1500ms]">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2200&q=90"
+            alt="Restaurant dining" class="w-full h-full object-cover">
+    </div>
+
+    <!-- DARK OVERLAY -->
+    <div class="absolute inset-0 bg-black/55"></div>
+
+    <!-- HERO CONTENT -->
+    <div class="absolute inset-0 flex items-center justify-center text-center px-5 pb-16">
+
+        <div class="max-w-4xl mx-auto text-white">
+
+            <div class="flex items-center justify-center gap-4 mb-7">
+
+                <span class="w-10 md:w-14 h-[2px] bg-[#FFD900]"></span>
+
+                <p class="text-[#FFD900] text-[11px] md:text-sm font-bold uppercase tracking-[4px]">
+                    Welcome to J.K Resort
+                </p>
+
+                <span class="w-10 md:w-14 h-[2px] bg-[#FFD900]"></span>
+
+            </div>
+
+            <h1 class="text-[38px] sm:text-5xl md:text-6xl lg:text-[64px] leading-[1.12] font-bold">
+                A Place to
+                <span class="text-[#FFD900]">Relax.</span>
+                <br>
+                A Place to
+                <span class="text-[#FFD900]">Enjoy.</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base md:text-lg lg:text-xl leading-8 text-gray-100 mt-7">
+                Experience warm hospitality, comfortable accommodation,
+                delicious food and refreshing drinks at J.K Resort.
+                Your memorable experience begins here.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-9">
+
+                <a href="#experience"
+                    class="w-full sm:w-auto bg-[#FFD900] text-[#171717] px-8 py-4 text-sm md:text-base font-bold hover:bg-white transition duration-300">
+                    Discover J.K Resort
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+
+                <a href="#contact"
+                    class="w-full sm:w-auto border border-white text-white px-8 py-4 text-sm md:text-base font-bold hover:bg-white hover:text-black transition duration-300">
+                    Make an Enquiry
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM SERVICE BAR -->
+    <div class="absolute bottom-0 left-0 w-full bg-[#E71916]">
+
+        <div
+            class="max-w-7xl mx-auto px-5 py-4 flex flex-wrap justify-center md:justify-between items-center gap-4 md:gap-8 text-white">
+
+            <div class="flex items-center gap-3 text-sm md:text-base font-bold">
+                <i class="fa-solid fa-bed text-[#FFD900]"></i>
+                Accommodation
+            </div>
+
+            <div class="flex items-center gap-3 text-sm md:text-base font-bold">
+                <i class="fa-solid fa-utensils text-[#FFD900]"></i>
+                Food & Dining
+            </div>
+
+            <div class="flex items-center gap-3 text-sm md:text-base font-bold">
+                <i class="fa-solid fa-martini-glass text-[#FFD900]"></i>
+                Drinks
+            </div>
+
+            <div class="flex items-center gap-3 text-sm md:text-base font-bold">
+                <i class="fa-solid fa-calendar-days text-[#FFD900]"></i>
+                Events
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTRODUCTION
+====================================================== -->
+
+<section class="bg-white py-16 md:py-24">
+
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            <!-- IMAGE -->
+            <div class="relative">
+
+                <div class="h-[330px] sm:h-[420px] lg:h-[490px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=90"
+                        alt="Resort hospitality" class="w-full h-full object-cover">
+                </div>
+
+                <div class="absolute -bottom-5 right-3 md:-right-5 bg-[#E71916] text-white p-5 md:p-7 shadow-xl">
+
+                    <p class="text-[#FFD900] text-[11px] uppercase tracking-[3px] font-bold">
+                        The J.K Experience
+                    </p>
+
+                    <h3 class="text-xl md:text-2xl font-bold mt-2">
+                        Welcome. Relax. Enjoy.
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <!-- TEXT -->
+            <div class="pt-5 lg:pt-0">
+
+                <p class="text-[#E71916] text-xs font-bold uppercase tracking-[3px]">
+                    Discover J.K Resort
+                </p>
+
+                <h2 class="text-[32px] md:text-[42px] leading-tight font-bold text-[#171717] mt-5">
+                    Hospitality Begins With a Warm Welcome.
+                </h2>
+
+                <div class="w-16 h-[3px] bg-[#E71916] mt-6"></div>
+
+                <p class="text-gray-600 text-base md:text-[17px] leading-8 mt-7">
+                    Welcome to J.K Resort, a destination where hospitality,
+                    relaxation and memorable experiences come together.
+                </p>
+
+                <p class="text-gray-600 text-base md:text-[17px] leading-8 mt-4">
+                    Whether you are looking for comfortable accommodation,
+                    delicious food, refreshing drinks or a place to spend
+                    quality time, we look forward to welcoming you.
+                </p>
+
+                <a href="#experience"
+                    class="inline-flex items-center gap-3 bg-[#E71916] text-white px-7 py-4 mt-8 text-sm md:text-base font-bold hover:bg-[#171717] transition duration-300">
+
+                    Explore Our Resort
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPERIENCE / SERVICES
+====================================================== -->
+
+<section id="experience" class="bg-[#F8F6F1] py-16 md:py-24">
+
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <!-- SECTION HEADING -->
+        <div class="max-w-2xl mx-auto text-center mb-12 md:mb-16">
+
+            <p class="text-[#E71916] text-xs font-bold uppercase tracking-[3px]">
+                What We Offer
+            </p>
+
+            <h2 class="text-[32px] md:text-[44px] leading-tight font-bold text-[#171717] mt-4">
+                Experience More at J.K Resort
+            </h2>
+
+            <div class="w-16 h-[3px] bg-[#E71916] mx-auto mt-6"></div>
+
+            <p class="text-gray-600 text-base md:text-[17px] leading-8 mt-6">
+                From comfortable stays to enjoyable dining and refreshments,
+                discover what makes your visit special.
+            </p>
+
+        </div>
+
+
+        <!-- SERVICE CARDS -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- ACCOMMODATION -->
+            <a href="#accommodation" class="group relative h-[390px] overflow-hidden bg-black">
+
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=90"
+                    alt="Accommodation"
+                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+                <div class="absolute bottom-0 left-0 p-7 text-white">
+
+                    <p class="text-[#FFD900] text-xs font-bold uppercase tracking-[3px]">
+                        Stay With Us
+                    </p>
+
+                    <h3 class="text-2xl md:text-[27px] font-bold mt-3">
+                        Accommodation
+                    </h3>
+
+                    <p class="text-gray-200 text-base leading-7 mt-3">
+                        Find a welcoming place to rest and relax.
+                    </p>
+
+                    <span class="inline-flex items-center gap-3 text-sm font-bold mt-5">
+                        Explore Rooms
+                        <i class="fa-solid fa-arrow-right text-[#FFD900]"></i>
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- FOOD -->
+            <a href="#dining" class="group relative h-[390px] overflow-hidden bg-black">
+
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=90"
+                    alt="Food and dining"
+                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+                <div class="absolute bottom-0 left-0 p-7 text-white">
+
+                    <p class="text-[#FFD900] text-xs font-bold uppercase tracking-[3px]">
+                        Good Food
+                    </p>
+
+                    <h3 class="text-2xl md:text-[27px] font-bold mt-3">
+                        Food & Dining
+                    </h3>
+
+                    <p class="text-gray-200 text-base leading-7 mt-3">
+                        Enjoy meals in a welcoming atmosphere.
+                    </p>
+
+                    <span class="inline-flex items-center gap-3 text-sm font-bold mt-5">
+                        Discover Dining
+                        <i class="fa-solid fa-arrow-right text-[#FFD900]"></i>
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- DRINKS -->
+            <a href="#drinks" class="group relative h-[390px] overflow-hidden bg-black">
+
+                <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=90"
+                    alt="Drinks and refreshments"
+                    class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+
+                <div class="absolute bottom-0 left-0 p-7 text-white">
+
+                    <p class="text-[#FFD900] text-xs font-bold uppercase tracking-[3px]">
+                        Refresh Yourself
+                    </p>
+
+                    <h3 class="text-2xl md:text-[27px] font-bold mt-3">
+                        Drinks
+                    </h3>
+
+                    <p class="text-gray-200 text-base leading-7 mt-3">
+                        Take time to relax and enjoy refreshments.
+                    </p>
+
+                    <span class="inline-flex items-center gap-3 text-sm font-bold mt-5">
+                        Explore More
+                        <i class="fa-solid fa-arrow-right text-[#FFD900]"></i>
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ACCOMMODATION
+====================================================== -->
+
+<section id="accommodation" class="bg-white py-16 md:py-24">
+
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            <div>
+
+                <p class="text-[#E71916] text-xs font-bold uppercase tracking-[3px]">
+                    Stay With Us
+                </p>
+
+                <h2 class="text-[32px] md:text-[44px] leading-tight font-bold text-[#171717] mt-5">
+                    Your Comfort Is Our Priority.
+                </h2>
+
+                <div class="w-16 h-[3px] bg-[#E71916] mt-6"></div>
+
+                <p class="text-gray-600 text-base md:text-[17px] leading-8 mt-7">
+                    Make your visit more enjoyable with accommodation
+                    at J.K Resort. Get in touch with us to learn about
+                    available rooms and booking arrangements.
+                </p>
+
+                <div class="space-y-6 mt-9">
+
+                    <div class="flex items-start gap-5">
+
+                        <div
+                            class="w-12 h-12 shrink-0 bg-red-50 flex items-center justify-center text-[#E71916] text-xl">
+                            <i class="fa-solid fa-bed"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-bold text-[#171717]">
+                                Comfortable Accommodation
+                            </h3>
+
+                            <p class="text-gray-500 text-sm md:text-base mt-2">
+                                Enquire about our available rooms.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="flex items-start gap-5">
+
+                        <div
+                            class="w-12 h-12 shrink-0 bg-red-50 flex items-center justify-center text-[#E71916] text-xl">
+                            <i class="fa-solid fa-concierge-bell"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-bold text-[#171717]">
+                                Guest Hospitality
+                            </h3>
+
+                            <p class="text-gray-500 text-sm md:text-base mt-2">
+                                Enjoy a welcoming experience.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <a href="#contact"
+                    class="inline-flex items-center gap-3 bg-[#E71916] text-white px-7 py-4 mt-9 text-sm md:text-base font-bold hover:bg-[#171717] transition">
+
+                    Enquire About Accommodation
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+
+            <!-- ACCOMMODATION IMAGES -->
+            <div class="grid grid-cols-2 gap-4">
+
+                <div class="h-[260px] md:h-[370px] mt-12 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=90"
+                        alt="Guest bedroom" class="w-full h-full object-cover">
+                </div>
+
+                <div class="h-[260px] md:h-[370px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=800&q=90"
+                        alt="Resort accommodation" class="w-full h-full object-cover">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOD AND DRINKS
+====================================================== -->
+
+<section id="dining" class="bg-[#F8F6F1] py-16 md:py-24">
+
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-12">
+
+            <p class="text-[#E71916] text-xs font-bold uppercase tracking-[3px]">
+                Food & Refreshments
+            </p>
+
+            <h2 class="text-[32px] md:text-[44px] font-bold text-[#171717] leading-tight mt-5">
+                Good Times Begin Around the Table.
+            </h2>
+
+            <div class="w-16 h-[3px] bg-[#E71916] mx-auto mt-6"></div>
+
+            <p class="text-gray-600 text-base md:text-[17px] leading-8 mt-6">
+                Enjoy food and refreshments in a welcoming environment.
+            </p>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-2 gap-7">
+
+            <!-- FOOD -->
+            <div class="bg-white">
+
+                <div class="h-[280px] md:h-[340px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=90"
+                        alt="Restaurant" class="w-full h-full object-cover transition duration-700 hover:scale-105">
+                </div>
+
+                <div class="p-7 md:p-9">
+
+                    <p class="text-[#E71916] text-xs font-bold uppercase tracking-[3px]">
+                        Food & Dining
+                    </p>
+
+                    <h3 class="text-2xl md:text-[27px] font-bold text-[#171717] mt-4">
+                        A Place to Enjoy Good Food
+                    </h3>
+
+                    <p class="text-gray-600 text-base leading-8 mt-4">
+                        Join us for a dining experience in a welcoming atmosphere.
+                    </p>
+
+                    <a href="#contact"
+                        class="inline-flex items-center gap-3 text-[#E71916] text-sm font-bold mt-6 hover:text-black transition">
+
+                        Make an Enquiry
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- DRINKS -->
+            <div id="drinks" class="bg-white">
+
+                <div class="h-[280px] md:h-[340px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=90"
+                        alt="Drinks and hospitality"
+                        class="w-full h-full object-cover transition duration-700 hover:scale-105">
+                </div>
+
+                <div class="p-7 md:p-9">
+
+                    <p class="text-[#E71916] text-xs font-bold uppercase tracking-[3px]">
+                        Drinks & Refreshments
+                    </p>
+
+                    <h3 class="text-2xl md:text-[27px] font-bold text-[#171717] mt-4">
+                        Refresh, Relax and Enjoy
+                    </h3>
+
+                    <p class="text-gray-600 text-base leading-8 mt-4">
+                        Take a break and enjoy refreshments during your visit.
+                    </p>
+
+                    <a href="#contact"
+                        class="inline-flex items-center gap-3 text-[#E71916] text-sm font-bold mt-6 hover:text-black transition">
+
+                        Make an Enquiry
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EVENTS SECTION
+====================================================== -->
+
+<section class="relative py-24 md:py-32 overflow-hidden">
+
+    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=2000&q=90"
+        alt="Events and gatherings" class="absolute inset-0 w-full h-full object-cover">
+
+    <div class="absolute inset-0 bg-black/75"></div>
+
+    <div class="relative max-w-4xl mx-auto px-5 text-center text-white">
+
+        <p class="text-[#FFD900] text-xs md:text-sm font-bold uppercase tracking-[4px]">
+            Meetings & Events
+        </p>
+
+        <h2 class="text-[34px] md:text-5xl lg:text-[54px] leading-tight font-bold mt-6">
+            Bring People Together at J.K Resort.
+        </h2>
+
+        <div class="w-16 h-[3px] bg-[#FFD900] mx-auto mt-7"></div>
+
+        <p class="text-gray-200 text-base md:text-lg leading-8 mt-7 max-w-2xl mx-auto">
+            Looking for a place for a gathering or special occasion?
+            Contact us to discuss the facilities and arrangements available.
+        </p>
+
+        <a href="#contact"
+            class="inline-flex items-center gap-3 bg-[#FFD900] text-[#171717] px-8 py-4 mt-9 text-sm md:text-base font-bold hover:bg-white transition">
+
+            Discuss Your Event
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY
+====================================================== -->
+
+<section id="gallery" class="bg-white py-16 md:py-24">
+
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+        <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-10">
+
+            <div>
+
+                <p class="text-[#E71916] text-xs font-bold uppercase tracking-[3px]">
+                    Moments at J.K Resort
+                </p>
+
+                <h2 class="text-[32px] md:text-[44px] font-bold text-[#171717] leading-tight mt-5">
+                    A Glimpse of the Experience.
+                </h2>
+
+                <div class="w-16 h-[3px] bg-[#E71916] mt-6"></div>
+
+            </div>
+
+            <p class="text-gray-500 text-base md:text-[17px] leading-7 max-w-md">
+                Explore hospitality, dining and accommodation through our gallery.
+            </p>
+
+        </div>
+
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+
+            <div class="col-span-2 row-span-2 h-[300px] md:h-[500px] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=90"
+                    alt="Resort environment" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+            </div>
+
+            <div class="h-[143px] md:h-[242px] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=90"
+                    alt="Accommodation" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+            </div>
+
+            <div class="h-[143px] md:h-[242px] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=90"
+                    alt="Dining" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+            </div>
+
+            <div class="h-[143px] md:h-[242px] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=90"
+                    alt="Resort" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+            </div>
+
+            <div class="h-[143px] md:h-[242px] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=90"
+                    alt="Food" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CALL TO ACTION
+====================================================== -->
+
+<section class="bg-[#E71916] py-16 md:py-20">
+
+    <div class="max-w-5xl mx-auto px-5 text-center text-white">
+
+        <p class="text-[#FFD900] text-xs font-bold uppercase tracking-[4px]">
+            Your Next Visit Starts Here
+        </p>
+
+        <h2 class="text-[34px] md:text-5xl lg:text-[54px] font-bold leading-tight mt-6">
+            We Would Love to Welcome You.
+        </h2>
+
+        <p class="text-white/90 text-base md:text-lg leading-8 max-w-2xl mx-auto mt-6">
+            Get in touch with J.K Resort and let us help you
+            plan your next visit.
+        </p>
+
+        <a href="#contact"
+            class="inline-flex items-center gap-3 bg-[#FFD900] text-[#171717] px-9 py-4 mt-9 text-sm md:text-base font-bold hover:bg-white transition duration-300">
+
+            Contact J.K Resort
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+{% block extra_js %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // =====================================
+        // HERO AUTOMATIC IMAGE SLIDER
+        // =====================================
+
+        const slides = document.querySelectorAll('.jk-slide');
+
+        let currentSlide = 0;
+
+        if (slides.length > 1) {
+
+            setInterval(function () {
+
+                slides[currentSlide].classList.remove('opacity-100');
+                slides[currentSlide].classList.add('opacity-0');
+
+                currentSlide = (currentSlide + 1) % slides.length;
+
+                slides[currentSlide].classList.remove('opacity-0');
+                slides[currentSlide].classList.add('opacity-100');
+
+            }, 6000);
+
+        }
+
+    });
+</script>
+
+{% endblock %}

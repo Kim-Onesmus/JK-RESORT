@@ -1,0 +1,64 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Contact &amp; Booking Enquiries | JK Resort{% endblock %}
+
+{% block content %}
+<section class="contact-heading section-wrap">
+    <div>
+        <p class="eyebrow"><span class="eyebrow-dot"></span> GET IN TOUCH</p>
+        <h1>Let's start<br><em>with hello.</em></h1>
+    </div>
+    <p>Planning a stay, a meal or a get-together? Send us a note and our team will get back to you.</p>
+</section>
+
+<section class="contact-layout section-wrap" id="inquiry">
+    <div class="contact-aside">
+        <span class="contact-aside-mark">JK<span>✳</span></span>
+        <p class="contact-aside-title">We'd love to<br>hear from you.</p>
+        <p class="contact-aside-copy">Share a few details in the form and we'll be in touch to help with your enquiry.</p>
+        <span class="contact-aside-rule"></span>
+        <span class="contact-aside-small">STAYS · GATHERINGS · GOOD TIMES</span>
+    </div>
+    <div class="form-panel">
+        <div class="form-heading">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR ENQUIRY</p>
+            <h2>What can we help<br>you <em>plan?</em></h2>
+        </div>
+        <form method="post" class="inquiry-form">
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                <div class="form-errors" role="alert">{{ form.non_field_errors }}</div>
+            {% endif %}
+            <div class="form-field">
+                <label for="{{ form.inquiry_type.id_for_label }}">I'm getting in touch about</label>
+                {{ form.inquiry_type }}
+                {{ form.inquiry_type.errors }}
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="{{ form.name.id_for_label }}">Your name</label>
+                    {{ form.name }}
+                    {{ form.name.errors }}
+                </div>
+                <div class="form-field">
+                    <label for="{{ form.email.id_for_label }}">Email address</label>
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+            </div>
+            <div class="form-field">
+                <label for="{{ form.phone.id_for_label }}">Phone number <span>(optional)</span></label>
+                {{ form.phone }}
+                {{ form.phone.errors }}
+            </div>
+            <div class="form-field">
+                <label for="{{ form.message.id_for_label }}">A little more about it</label>
+                {{ form.message }}
+                {{ form.message.errors }}
+            </div>
+            <button class="button button-red form-submit" type="submit">Send your enquiry <span aria-hidden="true">↗</span></button>
+            <p class="form-note">Your details are only used to respond to this enquiry.</p>
+        </form>
+    </div>
+</section>
+{% endblock %}

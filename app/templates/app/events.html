@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Meetings &amp; Events | JK Resort{% endblock %}
+
+{% block content %}
+<section class="inner-hero events-hero">
+    <div class="inner-hero-image" role="img" aria-label="A welcoming space for people to meet and celebrate"></div>
+    <div class="inner-hero-shade"></div>
+    <div class="inner-hero-content">
+        <p class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> MEETINGS &amp; EVENTS</p>
+        <h1>Make it a<br><em>moment.</em></h1>
+        <p>For plans with a purpose, and days that deserve a little more.</p>
+        <a class="button button-yellow" href="{% url 'contact' %}?type=event#inquiry">Start planning <span aria-hidden="true">↗</span></a>
+    </div>
+    <span class="inner-hero-caption">GATHER WELL / JK RESORT</span>
+</section>
+
+<section class="event-intro section-wrap">
+    <div class="event-intro-label">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> A PLACE TO COME TOGETHER</p>
+        <span class="section-number">01 — 02</span>
+    </div>
+    <div class="event-intro-copy">
+        <h2>From the everyday<br>to the <em>once-in-a-lifetime.</em></h2>
+        <p>Bring your people together at JK Resort. Share a few details about the day you have in mind, and our team will be in touch to talk through the possibilities.</p>
+    </div>
+</section>
+
+<section class="event-types">
+    <article class="event-type">
+        <div class="event-type-number">01</div>
+        <div class="event-type-body">
+            <p class="eyebrow">FOCUS &amp; CONNECT</p>
+            <h3>Meetings</h3>
+            <p>Make time for fresh thinking, good conversation, and the next big idea. Tell us about your group and what you need for the day.</p>
+            <a class="text-link" href="{% url 'contact' %}?type=event#inquiry">Ask about a meeting <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="event-type-photo meeting-photo" role="img" aria-label="A bright meeting table prepared for a small group"></div>
+    </article>
+    <article class="event-type event-type-reverse">
+        <div class="event-type-number">02</div>
+        <div class="event-type-body">
+            <p class="eyebrow">CELEBRATE TOGETHER</p>
+            <h3>Special days</h3>
+            <p>Birthdays, family get-togethers, and all the in-between occasions. Let's make your next gathering one to remember.</p>
+            <a class="text-link" href="{% url 'contact' %}?type=event#inquiry">Plan an occasion <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="event-type-photo celebration-photo" role="img" aria-label="A festive outdoor table set for a celebration"></div>
+    </article>
+</section>
+
+<section class="event-cta">
+    <p class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> TELL US WHAT YOU'RE IMAGINING</p>
+    <h2>Every good gathering<br>starts with <em>a hello.</em></h2>
+    <a class="button button-yellow" href="{% url 'contact' %}?type=event#inquiry">Enquire about your event <span aria-hidden="true">↗</span></a>
+</section>
+{% endblock %}

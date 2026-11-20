@@ -9,8 +9,19 @@ def home(request):
     return render(request, 'app/home.html')
 
 
-# def events(request):
-#     return render(request, 'app/events.html')
+def accommodation(request):
+    return render(request, 'app/accomodation.html')
+
+def contact(request):
+    return render(request, 'app/contact.html')
+
+
+def events(request):
+    return render(request, 'app/events.html')
+
+def media(request):
+    return render(request, 'app/media.html')
+
 
 
 # def contact(request):

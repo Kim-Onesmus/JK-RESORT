@@ -1,0 +1,529 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Media Gallery | J.K Resort{% endblock %}
+
+{% block meta_description %}
+Explore the J.K Resort photo gallery and discover accommodation, dining, events and the resort experience.
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="relative min-h-[480px] md:min-h-[580px] flex items-center justify-center overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2000&q=85"
+        alt="Resort surroundings" class="absolute inset-0 w-full h-full object-cover">
+
+    <div class="absolute inset-0 bg-black/65"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-5 py-24 text-center text-white">
+        <p class="text-resort-yellow uppercase tracking-[4px] text-sm md:text-base mb-5">
+            Moments at J.K Resort
+        </p>
+
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+            Our Media Gallery
+        </h1>
+
+        <div class="w-20 h-1 bg-resort-yellow mx-auto mb-7"></div>
+
+        <p class="text-lg md:text-xl leading-8 text-gray-100 max-w-2xl mx-auto">
+            Take a look at the spaces, experiences and moments
+            that make J.K Resort special.
+        </p>
+    </div>
+</section>
+
+
+<!-- BREADCRUMB -->
+<div class="bg-resort-cream border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-5 py-4 text-sm text-gray-600">
+        <a href="{% url 'home' %}" class="hover:text-resort-red">
+            Home
+        </a>
+
+        <i class="fa-solid fa-chevron-right text-xs mx-3"></i>
+
+        <span class="text-resort-red font-semibold">
+            Media Gallery
+        </span>
+    </div>
+</div>
+
+
+<!-- INTRODUCTION -->
+<section class="pt-20 pb-10 md:pt-24 md:pb-12 bg-white">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+        <p class="text-resort-red uppercase tracking-[3px] text-sm font-bold mb-4">
+            Explore J.K Resort
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-bold text-resort-dark mb-6">
+            A Glimpse Into Our World
+        </h2>
+
+        <div class="w-16 h-1 bg-resort-yellow mx-auto mb-6"></div>
+
+        <p class="text-gray-600 text-lg leading-8">
+            Explore our gallery for a glimpse of accommodation,
+            food and dining, events and the wider resort experience.
+        </p>
+    </div>
+</section>
+
+
+<!-- GALLERY -->
+<section class="pb-20 md:pb-28 bg-white">
+    <div class="max-w-7xl mx-auto px-5">
+
+        <!-- FILTERS -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+
+            <button type="button" data-filter="all" aria-pressed="true"
+                class="gallery-filter bg-resort-red text-white border border-resort-red px-6 py-3 text-sm md:text-base font-bold transition duration-300">
+                All Photos
+            </button>
+
+            <button type="button" data-filter="accommodation" aria-pressed="false"
+                class="gallery-filter bg-white text-resort-dark border border-gray-300 px-6 py-3 text-sm md:text-base font-bold hover:border-resort-red hover:text-resort-red transition duration-300">
+                Accommodation
+            </button>
+
+            <button type="button" data-filter="dining" aria-pressed="false"
+                class="gallery-filter bg-white text-resort-dark border border-gray-300 px-6 py-3 text-sm md:text-base font-bold hover:border-resort-red hover:text-resort-red transition duration-300">
+                Food & Dining
+            </button>
+
+            <button type="button" data-filter="events" aria-pressed="false"
+                class="gallery-filter bg-white text-resort-dark border border-gray-300 px-6 py-3 text-sm md:text-base font-bold hover:border-resort-red hover:text-resort-red transition duration-300">
+                Meetings & Events
+            </button>
+
+            <button type="button" data-filter="resort" aria-pressed="false"
+                class="gallery-filter bg-white text-resort-dark border border-gray-300 px-6 py-3 text-sm md:text-base font-bold hover:border-resort-red hover:text-resort-red transition duration-300">
+                Resort
+            </button>
+
+        </div>
+
+
+        <!-- IMAGE GRID -->
+        <div id="galleryGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+
+            <!-- ACCOMMODATION 1 -->
+            <button type="button" data-category="accommodation"
+                data-full="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1600&q=90"
+                data-alt="Comfortable bedroom interior"
+                class="gallery-item group relative h-[280px] md:h-[330px] overflow-hidden text-left"
+                aria-label="Enlarge accommodation photograph">
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=85"
+                    alt="Comfortable bedroom interior"
+                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-90">
+                </div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <span class="text-resort-yellow text-xs uppercase tracking-[2px] font-bold">
+                        Accommodation
+                    </span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        A Place to Rest
+                    </h3>
+                </div>
+
+                <div
+                    class="absolute top-5 right-5 w-11 h-11 bg-white/90 text-resort-red flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </button>
+
+
+            <!-- DINING 1 -->
+            <button type="button" data-category="dining"
+                data-full="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=90"
+                data-alt="Restaurant dining presentation"
+                class="gallery-item group relative h-[280px] md:h-[330px] overflow-hidden text-left"
+                aria-label="Enlarge dining photograph">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85"
+                    alt="Restaurant dining presentation"
+                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-90">
+                </div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <span class="text-resort-yellow text-xs uppercase tracking-[2px] font-bold">
+                        Food & Dining
+                    </span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        Dining Experience
+                    </h3>
+                </div>
+
+                <div
+                    class="absolute top-5 right-5 w-11 h-11 bg-white/90 text-resort-red flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </button>
+
+
+            <!-- EVENTS 1 -->
+            <button type="button" data-category="events"
+                data-full="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=90"
+                data-alt="Event venue arrangement"
+                class="gallery-item group relative h-[280px] md:h-[330px] overflow-hidden text-left"
+                aria-label="Enlarge events photograph">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85"
+                    alt="Event venue arrangement"
+                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-90">
+                </div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <span class="text-resort-yellow text-xs uppercase tracking-[2px] font-bold">
+                        Meetings & Events
+                    </span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        Special Occasions
+                    </h3>
+                </div>
+
+                <div
+                    class="absolute top-5 right-5 w-11 h-11 bg-white/90 text-resort-red flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </button>
+
+
+            <!-- RESORT 1 -->
+            <button type="button" data-category="resort"
+                data-full="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=90"
+                data-alt="Resort outdoor surroundings"
+                class="gallery-item group relative h-[280px] md:h-[330px] overflow-hidden text-left"
+                aria-label="Enlarge resort photograph">
+                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85"
+                    alt="Resort outdoor surroundings"
+                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-90">
+                </div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <span class="text-resort-yellow text-xs uppercase tracking-[2px] font-bold">
+                        Resort
+                    </span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        The Resort Experience
+                    </h3>
+                </div>
+
+                <div
+                    class="absolute top-5 right-5 w-11 h-11 bg-white/90 text-resort-red flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </button>
+
+
+            <!-- ACCOMMODATION 2 -->
+            <button type="button" data-category="accommodation"
+                data-full="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1600&q=90"
+                data-alt="Bedroom accommodation"
+                class="gallery-item group relative h-[280px] md:h-[330px] overflow-hidden text-left"
+                aria-label="Enlarge bedroom photograph">
+                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=85"
+                    alt="Bedroom accommodation"
+                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-90">
+                </div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <span class="text-resort-yellow text-xs uppercase tracking-[2px] font-bold">
+                        Accommodation
+                    </span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        Comfort and Relaxation
+                    </h3>
+                </div>
+
+                <div
+                    class="absolute top-5 right-5 w-11 h-11 bg-white/90 text-resort-red flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </button>
+
+
+            <!-- DINING 2 -->
+            <button type="button" data-category="dining"
+                data-full="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=90"
+                data-alt="Food and restaurant table"
+                class="gallery-item group relative h-[280px] md:h-[330px] overflow-hidden text-left"
+                aria-label="Enlarge food photograph">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=85"
+                    alt="Food and restaurant table"
+                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-90">
+                </div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <span class="text-resort-yellow text-xs uppercase tracking-[2px] font-bold">
+                        Food & Dining
+                    </span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        Food and Refreshments
+                    </h3>
+                </div>
+
+                <div
+                    class="absolute top-5 right-5 w-11 h-11 bg-white/90 text-resort-red flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </button>
+
+
+            <!-- EVENTS 2 -->
+            <button type="button" data-category="events"
+                data-full="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=90"
+                data-alt="Celebration event table"
+                class="gallery-item group relative h-[280px] md:h-[330px] overflow-hidden text-left"
+                aria-label="Enlarge celebration photograph">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=85"
+                    alt="Celebration event table"
+                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-90">
+                </div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <span class="text-resort-yellow text-xs uppercase tracking-[2px] font-bold">
+                        Meetings & Events
+                    </span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        Gather and Celebrate
+                    </h3>
+                </div>
+
+                <div
+                    class="absolute top-5 right-5 w-11 h-11 bg-white/90 text-resort-red flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </button>
+
+
+            <!-- RESORT 2 -->
+            <button type="button" data-category="resort"
+                data-full="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=90"
+                data-alt="Hospitality and resort building"
+                class="gallery-item group relative h-[280px] md:h-[330px] overflow-hidden text-left"
+                aria-label="Enlarge resort photograph">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=85"
+                    alt="Hospitality and resort building"
+                    class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent opacity-90">
+                </div>
+
+                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <span class="text-resort-yellow text-xs uppercase tracking-[2px] font-bold">
+                        Resort
+                    </span>
+                    <h3 class="text-2xl font-bold mt-2">
+                        Welcome to J.K Resort
+                    </h3>
+                </div>
+
+                <div
+                    class="absolute top-5 right-5 w-11 h-11 bg-white/90 text-resort-red flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </button>
+
+        </div>
+
+        <!-- EMPTY MESSAGE -->
+        <p id="galleryEmpty" class="hidden text-center text-gray-500 text-lg py-12">
+            No photos are currently available in this category.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- LIGHTBOX -->
+<div id="galleryLightbox" class="hidden fixed inset-0 z-[100] bg-black/95 items-center justify-center p-5" role="dialog"
+    aria-modal="true" aria-label="Enlarged gallery image">
+    <button type="button" id="closeLightbox"
+        class="absolute top-5 right-5 w-12 h-12 bg-white text-resort-dark text-2xl hover:bg-resort-yellow transition"
+        aria-label="Close enlarged image">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="max-w-6xl w-full flex flex-col items-center">
+        <img id="lightboxImage" src="" alt="" class="max-h-[80vh] max-w-full object-contain">
+
+        <p id="lightboxCaption" class="text-white text-center mt-5 text-lg"></p>
+    </div>
+</div>
+
+
+<!-- FINAL CTA -->
+<!-- <section class="bg-resort-dark py-20 md:py-24">
+    <div class="max-w-4xl mx-auto px-5 text-center">
+
+        <p class="text-resort-yellow uppercase tracking-[3px] text-sm font-bold mb-5">
+            Your Experience Matters
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            Come and Create Your Own Memories
+        </h2>
+
+        <p class="text-gray-300 text-lg leading-8 mb-9">
+            We would love to welcome you to J.K Resort.
+            Get in touch with us to plan your next visit.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+
+            <a href="{% url 'accommodation' %}"
+                class="bg-resort-yellow text-resort-dark px-8 py-4 font-bold hover:bg-white transition duration-300">
+                Explore Accommodation
+            </a>
+
+            <a href="{% url 'contact' %}"
+                class="border-2 border-white text-white px-8 py-4 font-bold hover:bg-white hover:text-resort-dark transition duration-300">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+</section> -->
+
+{% endblock %}
+
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // GALLERY FILTERS
+        const filterButtons = document.querySelectorAll('.gallery-filter');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const emptyMessage = document.getElementById('galleryEmpty');
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener('click', function () {
+
+                const selectedCategory = this.dataset.filter;
+                let visibleCount = 0;
+
+                filterButtons.forEach(filterButton => {
+                    filterButton.setAttribute('aria-pressed', 'false');
+
+                    filterButton.classList.remove(
+                        'bg-resort-red',
+                        'text-white',
+                        'border-resort-red'
+                    );
+
+                    filterButton.classList.add(
+                        'bg-white',
+                        'text-resort-dark',
+                        'border-gray-300'
+                    );
+                });
+
+                this.setAttribute('aria-pressed', 'true');
+
+                this.classList.remove(
+                    'bg-white',
+                    'text-resort-dark',
+                    'border-gray-300'
+                );
+
+                this.classList.add(
+                    'bg-resort-red',
+                    'text-white',
+                    'border-resort-red'
+                );
+
+                galleryItems.forEach(item => {
+
+                    const matches =
+                        selectedCategory === 'all' ||
+                        item.dataset.category === selectedCategory;
+
+                    item.classList.toggle('hidden', !matches);
+
+                    if (matches) {
+                        visibleCount++;
+                    }
+                });
+
+                emptyMessage.classList.toggle('hidden', visibleCount !== 0);
+            });
+
+        });
+
+
+        // IMAGE LIGHTBOX
+        const lightbox = document.getElementById('galleryLightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const closeLightbox = document.getElementById('closeLightbox');
+
+        function openLightbox(item) {
+
+            const imageUrl = item.dataset.full;
+            const imageAlt = item.dataset.alt || 'J.K Resort gallery image';
+
+            lightboxImage.src = imageUrl;
+            lightboxImage.alt = imageAlt;
+            lightboxCaption.textContent = imageAlt;
+
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+
+            document.body.classList.add('overflow-hidden');
+
+            closeLightbox.focus();
+        }
+
+        function hideLightbox() {
+
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+
+            lightboxImage.src = '';
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function () {
+                openLightbox(this);
+            });
+        });
+
+        closeLightbox.addEventListener('click', hideLightbox);
+
+        lightbox.addEventListener('click', function (event) {
+            if (event.target === lightbox) {
+                hideLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                hideLightbox();
+            }
+        });
+
+    });
+</script>
+{% endblock %}

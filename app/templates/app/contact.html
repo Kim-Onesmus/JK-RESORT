@@ -1,64 +1,403 @@
 {% extends 'app/base.html' %}
+{% load static %}
 
-{% block title %}Contact &amp; Booking Enquiries | JK Resort{% endblock %}
+{% block title %}Contact Us | J.K Resort{% endblock %}
+
+{% block meta_description %}
+Get in touch with J.K Resort for accommodation enquiries, bookings, food, events and general assistance.
+{% endblock %}
 
 {% block content %}
-<section class="contact-heading section-wrap">
-    <div>
-        <p class="eyebrow"><span class="eyebrow-dot"></span> GET IN TOUCH</p>
-        <h1>Let's start<br><em>with hello.</em></h1>
+
+<!-- HERO SECTION -->
+<section class="relative min-h-[480px] md:min-h-[560px] flex items-center justify-center overflow-hidden">
+
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85"
+        alt="Resort hospitality and dining" class="absolute inset-0 w-full h-full object-cover">
+
+    <div class="absolute inset-0 bg-black/65"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-5 text-center text-white py-24">
+
+        <p class="text-resort-yellow uppercase tracking-[4px] text-sm md:text-base mb-5">
+            We Would Love to Hear From You
+        </p>
+
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+            Contact Us
+        </h1>
+
+        <div class="w-20 h-1 bg-resort-yellow mx-auto mb-7"></div>
+
+        <p class="text-lg md:text-xl leading-8 text-gray-100 max-w-2xl mx-auto">
+            Have a question, planning a visit or need assistance with
+            a booking? Reach out to our team.
+        </p>
+
     </div>
-    <p>Planning a stay, a meal or a get-together? Send us a note and our team will get back to you.</p>
 </section>
 
-<section class="contact-layout section-wrap" id="inquiry">
-    <div class="contact-aside">
-        <span class="contact-aside-mark">JK<span>✳</span></span>
-        <p class="contact-aside-title">We'd love to<br>hear from you.</p>
-        <p class="contact-aside-copy">Share a few details in the form and we'll be in touch to help with your enquiry.</p>
-        <span class="contact-aside-rule"></span>
-        <span class="contact-aside-small">STAYS · GATHERINGS · GOOD TIMES</span>
+
+<!-- BREADCRUMB -->
+<div class="bg-resort-cream border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-5 py-4 text-sm text-gray-600">
+
+        <a href="{% url 'home' %}" class="hover:text-resort-red">
+            Home
+        </a>
+
+        <i class="fa-solid fa-chevron-right text-xs mx-3"></i>
+
+        <span class="text-resort-red font-semibold">Contact Us</span>
+
     </div>
-    <div class="form-panel">
-        <div class="form-heading">
-            <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR ENQUIRY</p>
-            <h2>What can we help<br>you <em>plan?</em></h2>
-        </div>
-        <form method="post" class="inquiry-form">
-            {% csrf_token %}
-            {% if form.non_field_errors %}
-                <div class="form-errors" role="alert">{{ form.non_field_errors }}</div>
-            {% endif %}
-            <div class="form-field">
-                <label for="{{ form.inquiry_type.id_for_label }}">I'm getting in touch about</label>
-                {{ form.inquiry_type }}
-                {{ form.inquiry_type.errors }}
-            </div>
-            <div class="form-row">
-                <div class="form-field">
-                    <label for="{{ form.name.id_for_label }}">Your name</label>
-                    {{ form.name }}
-                    {{ form.name.errors }}
-                </div>
-                <div class="form-field">
-                    <label for="{{ form.email.id_for_label }}">Email address</label>
-                    {{ form.email }}
-                    {{ form.email.errors }}
-                </div>
-            </div>
-            <div class="form-field">
-                <label for="{{ form.phone.id_for_label }}">Phone number <span>(optional)</span></label>
-                {{ form.phone }}
-                {{ form.phone.errors }}
-            </div>
-            <div class="form-field">
-                <label for="{{ form.message.id_for_label }}">A little more about it</label>
-                {{ form.message }}
-                {{ form.message.errors }}
-            </div>
-            <button class="button button-red form-submit" type="submit">Send your enquiry <span aria-hidden="true">↗</span></button>
-            <p class="form-note">Your details are only used to respond to this enquiry.</p>
-        </form>
+</div>
+
+
+<!-- CONTACT INTRODUCTION -->
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-5 text-center">
+
+        <p class="text-resort-red uppercase tracking-[3px] text-sm font-bold mb-4">
+            Get In Touch
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-bold text-resort-dark mb-6">
+            Let's Connect
+        </h2>
+
+        <div class="w-16 h-1 bg-resort-yellow mx-auto mb-7"></div>
+
+        <p class="text-gray-600 text-lg leading-8">
+            Whether you are enquiring about accommodation, planning an event
+            or looking for more information about our services, we are here
+            to help. Send us a message and let us know how we can assist you.
+        </p>
+
     </div>
 </section>
+
+
+<!-- CONTACT INFORMATION -->
+<section class="pb-20 bg-white">
+    <div class="max-w-7xl mx-auto px-5">
+
+        <div class="grid md:grid-cols-3 gap-7">
+
+            <!-- LOCATION -->
+            <div class="bg-resort-cream p-8 text-center border-b-4 border-resort-yellow">
+                <div class="w-16 h-16 mx-auto bg-resort-red text-white flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-resort-dark mb-3">
+                    Visit Us
+                </h3>
+
+                <p class="text-gray-600 leading-7">
+                    J.K Resort<br>
+                    Location details to be added
+                </p>
+            </div>
+
+
+            <!-- PHONE -->
+            <div class="bg-resort-cream p-8 text-center border-b-4 border-resort-yellow">
+                <div class="w-16 h-16 mx-auto bg-resort-red text-white flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-resort-dark mb-3">
+                    Call Us
+                </h3>
+
+                <p class="text-gray-600 leading-7">
+                    Phone number to be added
+                </p>
+            </div>
+
+
+            <!-- EMAIL -->
+            <div class="bg-resort-cream p-8 text-center border-b-4 border-resort-yellow">
+                <div class="w-16 h-16 mx-auto bg-resort-red text-white flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-resort-dark mb-3">
+                    Email Us
+                </h3>
+
+                <p class="text-gray-600 leading-7">
+                    Email address to be added
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTACT FORM AND SIDE CONTENT -->
+<section class="py-20 md:py-28 bg-resort-cream">
+    <div class="max-w-7xl mx-auto px-5">
+
+        <div class="grid lg:grid-cols-5 gap-12">
+
+            <!-- LEFT CONTENT -->
+            <div class="lg:col-span-2">
+
+                <p class="text-resort-red uppercase tracking-[3px] text-sm font-bold mb-4">
+                    Send Us a Message
+                </p>
+
+                <h2 class="text-4xl md:text-5xl font-bold text-resort-dark leading-tight mb-6">
+                    How Can We Help You?
+                </h2>
+
+                <div class="w-16 h-1 bg-resort-yellow mb-7"></div>
+
+                <p class="text-gray-600 text-lg leading-8 mb-9">
+                    Complete the enquiry form and provide a few details
+                    about what you need. Our team can then follow up
+                    regarding your enquiry.
+                </p>
+
+
+                <!-- ENQUIRY TYPES -->
+                <div class="space-y-6">
+
+                    <div class="flex items-start gap-4">
+                        <div class="text-resort-red text-2xl w-8">
+                            <i class="fa-solid fa-bed"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-resort-dark mb-1">
+                                Accommodation
+                            </h3>
+
+                            <p class="text-gray-600 leading-7">
+                                Enquire about rooms, availability and rates.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="flex items-start gap-4">
+                        <div class="text-resort-red text-2xl w-8">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-resort-dark mb-1">
+                                Food and Dining
+                            </h3>
+
+                            <p class="text-gray-600 leading-7">
+                                Contact us regarding our food and dining services.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="flex items-start gap-4">
+                        <div class="text-resort-red text-2xl w-8">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-resort-dark mb-1">
+                                Meetings and Events
+                            </h3>
+
+                            <p class="text-gray-600 leading-7">
+                                Make an enquiry about hosting your event at J.K Resort.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+            <div class="lg:col-span-3">
+
+                <div class="bg-white shadow-lg p-7 md:p-10">
+
+                    <h3 class="text-3xl font-bold text-resort-dark mb-3">
+                        Send an Enquiry
+                    </h3>
+
+                    <p class="text-gray-500 mb-8">
+                        Fill in the form below and submit your message.
+                    </p>
+
+                    <form method="POST" action="{% url 'contact' %}" class="space-y-6">
+                        {% csrf_token %}
+
+                        <div class="grid md:grid-cols-2 gap-6">
+
+                            <!-- NAME -->
+                            <div>
+                                <label for="name" class="block text-gray-700 font-bold mb-2">
+                                    Full Name <span class="text-resort-red">*</span>
+                                </label>
+
+                                <input type="text" name="name" id="name" placeholder="Enter your full name" required
+                                    autocomplete="name"
+                                    class="w-full border border-gray-300 px-4 py-4 outline-none focus:border-resort-red focus:ring-1 focus:ring-resort-red">
+                            </div>
+
+
+                            <!-- EMAIL -->
+                            <div>
+                                <label for="email" class="block text-gray-700 font-bold mb-2">
+                                    Email Address <span class="text-resort-red">*</span>
+                                </label>
+
+                                <input type="email" name="email" id="email" placeholder="Enter your email" required
+                                    autocomplete="email"
+                                    class="w-full border border-gray-300 px-4 py-4 outline-none focus:border-resort-red focus:ring-1 focus:ring-resort-red">
+                            </div>
+
+
+                            <!-- PHONE -->
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-bold mb-2">
+                                    Phone Number
+                                </label>
+
+                                <input type="tel" name="phone" id="phone" placeholder="Enter your phone number"
+                                    autocomplete="tel"
+                                    class="w-full border border-gray-300 px-4 py-4 outline-none focus:border-resort-red focus:ring-1 focus:ring-resort-red">
+                            </div>
+
+
+                            <!-- SUBJECT -->
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-bold mb-2">
+                                    Enquiry Type <span class="text-resort-red">*</span>
+                                </label>
+
+                                <select name="subject" id="subject" required
+                                    class="w-full border border-gray-300 px-4 py-4 bg-white outline-none focus:border-resort-red focus:ring-1 focus:ring-resort-red">
+                                    <option value="" selected disabled>Select enquiry type</option>
+                                    <option value="Accommodation">Accommodation</option>
+                                    <option value="Food and Dining">Food and Dining</option>
+                                    <option value="Drinks">Drinks and Refreshments</option>
+                                    <option value="Meetings and Events">Meetings and Events</option>
+                                    <option value="General Enquiry">General Enquiry</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+                        <div>
+                            <label for="message" class="block text-gray-700 font-bold mb-2">
+                                Your Message <span class="text-resort-red">*</span>
+                            </label>
+
+                            <textarea name="message" id="message" rows="6"
+                                placeholder="Tell us how we can assist you..." required
+                                class="w-full border border-gray-300 px-4 py-4 outline-none resize-y focus:border-resort-red focus:ring-1 focus:ring-resort-red"></textarea>
+                        </div>
+
+
+                        <!-- SUBMIT -->
+                        <button type="submit"
+                            class="w-full md:w-auto inline-flex items-center justify-center gap-3 bg-resort-red text-white px-10 py-4 font-bold hover:bg-red-800 transition duration-300">
+                            Send Message
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- LOCATION SECTION -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-5">
+
+        <div class="text-center max-w-3xl mx-auto mb-10">
+
+            <p class="text-resort-red uppercase tracking-[3px] text-sm font-bold mb-4">
+                Find Us
+            </p>
+
+            <h2 class="text-4xl md:text-5xl font-bold text-resort-dark mb-5">
+                Visit J.K Resort
+            </h2>
+
+            <div class="w-16 h-1 bg-resort-yellow mx-auto mb-6"></div>
+
+            <p class="text-gray-600 text-lg leading-8">
+                We look forward to welcoming you. Use our verified location
+                details to plan your visit.
+            </p>
+
+        </div>
+
+
+        <!-- Replace this placeholder with the resort's verified Google Maps embed -->
+        <div
+            class="bg-resort-cream border border-gray-200 min-h-[300px] md:min-h-[400px] flex flex-col items-center justify-center text-center p-8">
+
+            <div class="w-16 h-16 bg-resort-red text-white flex items-center justify-center text-2xl mb-5">
+                <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+
+            <h3 class="text-2xl font-bold text-resort-dark mb-3">
+                J.K Resort Location
+            </h3>
+
+            <p class="text-gray-600 max-w-xl leading-7">
+                The Google Maps location will be displayed here once the
+                resort's verified map embed link is added.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="bg-resort-dark py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-5 text-center">
+
+        <p class="text-resort-yellow uppercase tracking-[3px] text-sm font-bold mb-4">
+            J.K Resort
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+            We Look Forward to Welcoming You
+        </h2>
+
+        <p class="text-gray-300 text-lg leading-8 max-w-2xl mx-auto mb-8">
+            Whether you are planning a stay, visiting for food or organising
+            an event, get in touch with us today.
+        </p>
+
+        <a href="{% url 'accommodation' %}"
+            class="inline-flex items-center gap-3 bg-resort-yellow text-resort-dark px-9 py-4 font-bold hover:bg-white transition duration-300">
+            Explore Accommodation
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+</section>
+
 {% endblock %}

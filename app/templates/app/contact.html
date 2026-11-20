@@ -236,6 +236,11 @@ Get in touch with J.K Resort for accommodation enquiries, bookings, food, events
 
                     <form method="POST" action="{% url 'contact' %}" class="space-y-6">
                         {% csrf_token %}
+                        {% if form.errors %}
+                            <div class="border-l-4 border-resort-red bg-red-50 px-4 py-3 text-sm text-red-700" role="alert">
+                                Please check the highlighted information and try again.
+                            </div>
+                        {% endif %}
 
                         <div class="grid md:grid-cols-2 gap-6">
 
@@ -260,6 +265,7 @@ Get in touch with J.K Resort for accommodation enquiries, bookings, food, events
                                 <input type="email" name="email" id="email" placeholder="Enter your email" required
                                     autocomplete="email"
                                     class="w-full border border-gray-300 px-4 py-4 outline-none focus:border-resort-red focus:ring-1 focus:ring-resort-red">
+                                {{ form.email.errors }}
                             </div>
 
 
@@ -281,16 +287,7 @@ Get in touch with J.K Resort for accommodation enquiries, bookings, food, events
                                     Enquiry Type <span class="text-resort-red">*</span>
                                 </label>
 
-                                <select name="subject" id="subject" required
-                                    class="w-full border border-gray-300 px-4 py-4 bg-white outline-none focus:border-resort-red focus:ring-1 focus:ring-resort-red">
-                                    <option value="" selected disabled>Select enquiry type</option>
-                                    <option value="Accommodation">Accommodation</option>
-                                    <option value="Food and Dining">Food and Dining</option>
-                                    <option value="Drinks">Drinks and Refreshments</option>
-                                    <option value="Meetings and Events">Meetings and Events</option>
-                                    <option value="General Enquiry">General Enquiry</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                {{ form.inquiry_type }}
                             </div>
 
                         </div>

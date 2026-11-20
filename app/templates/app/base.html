@@ -176,6 +176,92 @@
                 display: none;
             }
         }
+
+        /* Consistent, less spacious section rhythm across every page */
+        main section.py-20,
+        main section.py-16,
+        main section.py-24,
+        main section.py-28 {
+            padding-top: 3.5rem;
+            padding-bottom: 3.5rem;
+        }
+
+        main section h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.08;
+        }
+
+        main section h2 {
+            font-size: clamp(30px, 3.5vw, 42px);
+            line-height: 1.12;
+        }
+
+        main section h3 {
+            font-size: clamp(20px, 2vw, 26px);
+            line-height: 1.2;
+        }
+
+        main section .gap-14 {
+            gap: 2.25rem;
+        }
+
+        @media (min-width: 768px) {
+            main section.md\:py-28,
+            main section.md\:py-24,
+            main section.md\:py-20 {
+                padding-top: 4.25rem;
+                padding-bottom: 4.25rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            main section h1 {
+                font-size: 38px;
+            }
+
+            main section h2 {
+                font-size: 30px;
+            }
+
+            main section h3 {
+                font-size: 20px;
+            }
+
+            main section .gap-14,
+            main section .gap-12 {
+                gap: 1.5rem;
+            }
+        }
+
+        /* Compact resort-style heading scale */
+        main h1 {
+            font-size: clamp(38px, 4.5vw, 52px) !important;
+            line-height: 1.08 !important;
+        }
+
+        main h2 {
+            font-size: clamp(30px, 3.2vw, 38px) !important;
+            line-height: 1.12 !important;
+        }
+
+        main h3 {
+            font-size: clamp(19px, 1.7vw, 23px) !important;
+            line-height: 1.2 !important;
+        }
+
+        @media (max-width: 767px) {
+            main h1 {
+                font-size: 38px !important;
+            }
+
+            main h2 {
+                font-size: 30px !important;
+            }
+
+            main h3 {
+                font-size: 20px !important;
+            }
+        }
     </style>
 
     {% block extra_css %}{% endblock %}
@@ -255,20 +341,20 @@
 
                     <a href="{% url 'home' %}" class="nav-link active">Home</a>
 
-                    <a href="#accommodation" class="nav-link">Accommodation</a>
+                    <a href="{% url 'accommodation' %}" class="nav-link{% if request.resolver_match.url_name == 'accommodation' %} active{% endif %}">Accommodation</a>
 
-                    <a href="#events" class="nav-link">Meetings & Events</a>
+                    <a href="{% url 'events' %}" class="nav-link{% if request.resolver_match.url_name == 'events' %} active{% endif %}">Meetings & Events</a>
 
-                    <a href="#gallery" class="nav-link">Media</a>
+                    <a href="{% url 'media' %}" class="nav-link{% if request.resolver_match.url_name == 'media' %} active{% endif %}">Media</a>
 
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="{% url 'contact' %}" class="nav-link{% if request.resolver_match.url_name == 'contact' %} active{% endif %}">Contact</a>
 
                 </nav>
 
 
                 <!-- BOOK NOW -->
                 <div class="hidden lg:block">
-                    <a href="#contact"
+                    <a href="{% url 'contact' %}"
                         class="red-button px-7 py-3.5 text-base font-bold inline-flex items-center gap-3">
                         Book Now
                         <i class="fa-solid fa-arrow-right"></i>
@@ -294,15 +380,15 @@
 
                     <a href="{% url 'home' %}">Home</a>
 
-                    <a href="#accommodation">Accommodation</a>
+                    <a href="{% url 'accommodation' %}">Accommodation</a>
 
-                    <a href="#events">Meetings & Events</a>
+                    <a href="{% url 'events' %}">Meetings & Events</a>
 
-                    <a href="#gallery">Media</a>
+                    <a href="{% url 'media' %}">Media</a>
 
-                    <a href="#contact">Contact</a>
+                    <a href="{% url 'contact' %}">Contact</a>
 
-                    <a href="#contact" class="red-button text-center py-3">
+                    <a href="{% url 'contact' %}" class="red-button text-center py-3">
                         Book Now
                     </a>
 
@@ -374,13 +460,12 @@
 
                         <li><a href="{% url 'home' %}" class="hover:text-resort-yellow">Home</a></li>
 
-                        <li><a href="#accommodation" class="hover:text-resort-yellow">Accommodation</a></li>
+                        <li><a href="{% url 'accommodation' %}" class="hover:text-resort-yellow">Accommodation</a></li>
 
-                        <li><a href="#events" class="hover:text-resort-yellow">Meetings & Events</a></li>
+                        <li><a href="{% url 'events' %}" class="hover:text-resort-yellow">Meetings & Events</a></li>
 
-                        <li><a href="#gallery" class="hover:text-resort-yellow">Gallery</a></li>
+                        <li><a href="{% url 'media' %}" class="hover:text-resort-yellow">Gallery</a></li>
 
-                        <li><a href="#contact" class="hover:text-resort-yellow">Contact</a></li>
 
                     </ul>
 

@@ -6,9 +6,11 @@ from app.models import Inquiry
 class ResortPageTests(TestCase):
     def test_primary_pages_render(self):
         for path, heading in (
-            ('/', b'Stay, dine'),
-            ('/meetings-events/', b'Meetings'),
-            ('/contact/', b"Let's start"),
+            ('/', b'Relax'),
+            ('/accommodation/', b'Accommodation'),
+            ('/meetings-events/', b'Meetings & Events'),
+            ('/media/', b'Media Gallery'),
+            ('/contact/', b'Contact Us'),
         ):
             with self.subTest(path=path):
                 response = self.client.get(path)

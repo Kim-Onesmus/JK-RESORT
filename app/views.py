@@ -13,7 +13,18 @@ def accommodation(request):
     return render(request, 'app/accomodation.html')
 
 def contact(request):
-    return render(request, 'app/contact.html')
+    if request.method == 'POST':
+        form = InquiryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Thank you. Your enquiry has been received.')
+            return redirect('contact')
+    else:
+        inquiry_type = request.GET.get('type', 'general')
+        if inquiry_type not in InquiryForm.Meta.model.InquiryType.values:
+            inquiry_type = InquiryForm.Meta.model.InquiryType.GENERAL
+        form = InquiryForm(initial={'inquiry_type': inquiry_type})
+    return render(request, 'app/contact.html', {'form': form})
 
 
 def events(request):

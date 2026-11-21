@@ -1,10 +1,25 @@
+
+# Python
+.venv/
+venv/
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Django database
 db.sqlite3
+
+# Environment variables
 .env
+.env.*
+!.env.example
+
+# IDE and editor files
 .vscode/
 .idea/
+
+# Django static and media files
 staticfiles/
+media/
+
+# Vercel
 .vercel/
-.venv
-.vercel
